@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Agentic Mechanics | Training + Systems Deployment</title>
+  <meta name="description" content="Master the mechanics of AI agents. Training and system deployment for teams, built by PhDs from Meta, Google, and Apple." />
+
+  <meta property="og:title" content="AI Agentic Mechanics" />
+  <meta property="og:description" content="Train your team to run AI agents. Deploy automation that scales." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://agenticmechanics.ai" />
+  <meta property="og:image" content="https://agenticmechanics.ai/preview.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Agentic Mechanics" />
+  <meta name="twitter:description" content="Master the mechanics of AI agents. Training and systems deployment." />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111111'/%3E%3Cpath d='M8 24V10L16 6L24 10V24' stroke='white' stroke-width='2.5' stroke-linecap='square'/%3E%3Cpath d='M8 16H24' stroke='white' stroke-width='2.5'/%3E%3C/svg%3E" />
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --muted: #4a4a4a;
+      --line: #e7e7e7;
+      --soft: #f6f6f6;
+      --accent: #111111;
+      --radius: 14px;
+      --max: 920px;
+      --pad: 22px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 10%, rgba(0,0,0,0.03) 0%, transparent 40%),
+        radial-gradient(circle at 80% 30%, rgba(0,0,0,0.03) 0%, transparent 40%),
+        linear-gradient(#fafafa, #ffffff);
+      line-height: 1.5;
+    }
+
+    main::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(0,0,0,0.04) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    main {
+      position: relative;
+      padding: 40px 0 56px;
+    }
+
+    a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+    a:hover { opacity: 0.8; }
+
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 var(--pad); }
+
+    .brand { font-weight: 700; letter-spacing: 0.1px; }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.1;
+      letter-spacing: -0.6px;
+    }
+
+    .sub {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: none;
+    }
+
+    .cta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 18px 0 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--bg);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+
+    .btn:hover { opacity: 0.9; }
+
+    .features {
+      padding: 0 4px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .feature {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      background: #ffffff;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      align-items: start;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+
+    .feature h2 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      letter-spacing: -0.3px;
+    }
+
+    .feature p {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .bullets {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .bullets li { margin: 6px 0; }
+
+    .box {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      background: var(--soft);
+    }
+
+    .box h3 { margin: 0 0 10px; font-size: 14px; }
+
+    .list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .list li { margin: 8px 0; }
+
+    @media (max-width: 600px) {
+      .cta { flex-direction: column; }
+      .btn { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="wrap">
+      <div class="biz" style="font-weight:700; margin-bottom:10px; font-size:14px; letter-spacing:0.4px;">AI AGENTIC MECHANICS</div>
+      <h1>Master the mechanics of AI agents.<br>Training & system deployment.</h1>
+      <p class="sub">Practical intelligence for internal operations.<br>Built by AI PhDs and engineers from Meta, Google, and Apple.</p>
+
+      <div class="cta">
+        <a class="btn primary" href="https://calendly.com/your-handle">Book a 15-minute intro</a>
+        <a class="btn" href="mailto:yourname@domain.com?subject=AI%20Mechanics%20Inquiry">Leave a message</a>
+        <a class="btn" href="#services">See services</a>
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; margin:10px 0 26px; flex-wrap:wrap;">
+        <div style="flex:1; min-width:180px; border:1px solid var(--line); border-radius:12px; padding:14px; text-align:center;">
+          <strong>Train the Team</strong><br>
+          <span style="color:var(--muted); font-size:13px;">Understand agent mechanics</span>
+        </div>
+        <div style="font-size:18px; color:var(--muted);">→</div>
+        <div style="flex:1; min-width:180px; border:1px solid var(--line); border-radius:12px; padding:14px; text-align:center;">
+          <strong>Architect Systems</strong><br>
+          <span style="color:var(--muted); font-size:13px;">Custom agentic workflows</span>
+        </div>
+        <div style="font-size:18px; color:var(--muted);">→</div>
+        <div style="flex:1; min-width:180px; border:1px solid var(--line); border-radius:12px; padding:14px; text-align:center;">
+          <strong>Operationalize</strong><br>
+          <span style="color:var(--muted); font-size:13px;">Ownership at scale</span>
+        </div>
+      </div>
+
+      <div style="font-size:13px; letter-spacing:0.6px; color:var(--muted); margin:24px auto 10px; font-weight:600; max-width:760px;">OUR SERVICES</div>
+      <section id="services" aria-label="Services">
+        <div class="features">
+          <div class="feature">
+            <div>
+              <h2>Agentic Team Training</h2>
+              <p>Build internal engineering capability to master agentic systems.</p>
+              <ul class="bullets">
+                <li>Operating playbooks and architectural runbooks</li>
+                <li>Monitoring, evaluation, and review loops</li>
+                <li>Handoff so your team can maintain and improve</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="feature">
+            <div>
+              <h2>Workflow Systems Deployment</h2>
+              <p>Engineer agents that dismantle repetitive operations.</p>
+              <ul class="bullets">
+                <li>Document intake, summarization, and routing</li>
+                <li>Internal Q&A over company knowledge</li>
+                <li>Support reply drafting and ticket assistance</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="feature">
+            <div>
+              <h2>Executive Assistant Agents</h2>
+              <p>Precision agents designed to accelerate leadership workflows.</p>
+              <ul class="bullets">
+                <li>Summarize, draft, and retrieve information fast</li>
+                <li>Lightweight workflows for common tasks</li>
+                <li>Ideal for proving ROI within two weeks</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" style="margin: 28px auto 0; max-width:760px;" aria-label="Contact">
+        <div class="box" style="background: var(--bg);">
+          <h3>Contact</h3>
+          <ul class="list">
+            <li>Email: <a href="mailto:yourname@domain.com">yourname@domain.com</a></li>
+            <li>Calendar: <a href="#">calendly.com/your-handle</a></li>
+            <li>LinkedIn: <a href="#">linkedin.com/in/your-handle</a></li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
