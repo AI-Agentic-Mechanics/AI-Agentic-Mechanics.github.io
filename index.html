@@ -170,6 +170,28 @@
 
     .list li { margin: 8px 0; }
 
+    .contact-form {
+      margin-top: 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .contact-input,
+    .contact-textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      font: inherit;
+      color: var(--text);
+      background: #ffffff;
+    }
+
+    .contact-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
     @media (max-width: 600px) {
       .cta { flex-direction: column; }
       .btn { width: 100%; text-align: center; }
@@ -186,7 +208,7 @@
 
       <div class="cta">
         <a class="btn primary" href="https://calendly.com/sustcyzq/30min" target="_blank" rel="noopener noreferrer">Book a 30-minute intro</a>
-        <a class="btn" href="mailto:yourname@domain.com?subject=AI%20Mechanics%20Inquiry">Leave a message</a>
+        <a class="btn" href="#contact-form">Leave a message</a>
         <a class="btn" href="#services">See services</a>
       </div>
 
@@ -252,10 +274,15 @@
         <div class="box" style="background: var(--bg);">
           <h3>Contact</h3>
           <ul class="list">
-            <li>Email: <a href="mailto:yourname@domain.com">yourname@domain.com</a></li>
             <li>Calendar: <a href="https://calendly.com/sustcyzq/30min" target="_blank" rel="noopener noreferrer">calendly.com/sustcyzq/30min</a></li>
             <li>LinkedIn: <a class="btn" href="https://www.linkedin.com/in/zhongqi-yang-491793252/" target="_blank" rel="noopener noreferrer">Connect through LinkedIn</a></li>
           </ul>
+          <form id="contact-form" class="contact-form" action="https://formspree.io/f/mlgpeaqd" method="POST">
+            <input class="contact-input" type="text" name="name" placeholder="Your name" required />
+            <input class="contact-input" type="email" name="email" placeholder="Your email" required />
+            <textarea class="contact-textarea" name="message" placeholder="Your message" required></textarea>
+            <button class="btn primary" type="submit">Send message</button>
+          </form>
         </div>
       </section>
     </div>
