@@ -73,6 +73,7 @@
     }
 
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: var(--font);
@@ -348,6 +349,10 @@
     @media (max-width: 600px) {
       .cta { flex-direction: column; }
       .btn { width: 100%; text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
     }
   </style>
 </head>
