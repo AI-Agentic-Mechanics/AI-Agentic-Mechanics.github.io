@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="color-scheme" content="light" />
+  <meta name="color-scheme" content="light dark" />
   <title>Agent Mechanicians AI | Training + Systems Deployment</title>
   <meta name="description" content="Build custom AI agents for your business. Train your team to run them in-house. Cut consultant dependence." />
 
@@ -19,8 +19,21 @@
 
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111111'/%3E%3Cpath d='M8 24V10L16 6L24 10V24' stroke='white' stroke-width='2.5' stroke-linecap='square'/%3E%3Cpath d='M8 16H24' stroke='white' stroke-width='2.5'/%3E%3C/svg%3E" />
 
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem("amai-theme");
+        if (savedTheme === "light" || savedTheme === "dark") {
+          document.documentElement.setAttribute("data-theme", savedTheme);
+        }
+      } catch (error) {
+      }
+    })();
+  </script>
+
   <style>
     :root {
+      color-scheme: light;
       --bg: #ffffff;
       --text: #111111;
       --muted: #4a4a4a;
@@ -28,14 +41,35 @@
       --soft: #f6f6f6;
       --card: #ffffff;
       --accent: #111111;
+      --accent-contrast: #ffffff;
       --page-start: #fafafa;
       --page-end: #ffffff;
       --spot: rgba(0,0,0,0.03);
       --hero-glow: rgba(0,0,0,0.04);
+      --feature-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      --egg-select-bg: rgba(0,0,0,0.15);
       --radius: 14px;
       --max: 920px;
       --pad: 22px;
       --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #0f1115;
+      --text: #eceef3;
+      --muted: #bcc3cf;
+      --line: #2a303a;
+      --soft: #171b22;
+      --card: #151a21;
+      --accent: #f3f5f8;
+      --accent-contrast: #0f1115;
+      --page-start: #0b0d11;
+      --page-end: #0f1115;
+      --spot: rgba(255,255,255,0.05);
+      --hero-glow: rgba(255,255,255,0.08);
+      --feature-shadow: 0 2px 10px rgba(0,0,0,0.25);
+      --egg-select-bg: rgba(255,255,255,0.22);
     }
 
     * { box-sizing: border-box; }
@@ -72,6 +106,26 @@
     a:hover { opacity: 0.8; }
 
     .wrap { max-width: 1100px; margin: 0 auto; padding: 0 var(--pad); }
+
+    .theme-toggle-row {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 10px;
+    }
+
+    .theme-toggle {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--card);
+      color: var(--text);
+      font: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 12px;
+      cursor: pointer;
+    }
+
+    .theme-toggle:hover { opacity: 0.9; }
 
     .brand { font-weight: 700; letter-spacing: 0.1px; }
 
@@ -110,7 +164,7 @@
 
     .btn.primary {
       background: var(--accent);
-      color: #ffffff;
+      color: var(--accent-contrast);
       border-color: var(--accent);
     }
 
@@ -134,7 +188,7 @@
       grid-template-columns: 1fr;
       gap: 16px;
       align-items: start;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      box-shadow: var(--feature-shadow);
     }
 
     .feature h2 {
@@ -190,7 +244,7 @@
       border-radius: 10px;
       font: inherit;
       color: var(--text);
-      background: #ffffff;
+      background: var(--card);
     }
 
     .contact-textarea {
@@ -210,12 +264,12 @@
 
     .easter-egg::selection {
       color: var(--text);
-      background: rgba(0,0,0,0.15);
+      background: var(--egg-select-bg);
     }
 
     .easter-egg::-moz-selection {
       color: var(--text);
-      background: rgba(0,0,0,0.15);
+      background: var(--egg-select-bg);
     }
 
     @media (max-width: 600px) {
@@ -228,6 +282,9 @@
 <body>
   <main>
     <div class="wrap">
+      <div class="theme-toggle-row">
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">Switch to dark mode</button>
+      </div>
       <div class="biz" style="font-weight:700; margin-bottom:10px; font-size:14px; letter-spacing:0.4px;">AGENT MECHANICIANS AI</div>
       <h1>Build custom AI agents for your business.<br>Train your team to run them in-house.<br>Cut consultant dependence.</h1>
 
@@ -313,5 +370,34 @@
     </div>
   </main>
   <p aria-hidden="true" class="easter-egg">god bless you</p>
+  <script>
+    (function () {
+      var storageKey = "amai-theme";
+      var root = document.documentElement;
+      var toggle = document.getElementById("theme-toggle");
+      if (!toggle) return;
+
+      function getTheme() {
+        return root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+      }
+
+      function applyTheme(theme) {
+        root.setAttribute("data-theme", theme);
+        toggle.setAttribute("aria-pressed", String(theme === "dark"));
+        toggle.textContent = theme === "dark" ? "Switch to light mode" : "Switch to dark mode";
+      }
+
+      applyTheme(getTheme());
+
+      toggle.addEventListener("click", function () {
+        var nextTheme = getTheme() === "dark" ? "light" : "dark";
+        applyTheme(nextTheme);
+        try {
+          localStorage.setItem(storageKey, nextTheme);
+        } catch (error) {
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
