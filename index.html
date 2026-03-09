@@ -113,19 +113,77 @@
       margin-bottom: 10px;
     }
 
-    .theme-toggle {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: var(--card);
-      color: var(--text);
-      font: inherit;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 7px 12px;
+    .theme-switch {
+      position: relative;
+      display: inline-flex;
       cursor: pointer;
     }
 
-    .theme-toggle:hover { opacity: 0.9; }
+    .theme-switch-input {
+      position: absolute;
+      inset: 0;
+      margin: 0;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .theme-switch-track {
+      position: relative;
+      width: 58px;
+      height: 30px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--card);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 8px;
+    }
+
+    .theme-icon {
+      font-size: 13px;
+      line-height: 1;
+      color: var(--muted);
+      transition: color 0.35s ease, opacity 0.35s ease;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .theme-switch-thumb {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+      transform: translateX(0);
+      transition: transform 0.35s ease, background-color 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    :root:not([data-theme="dark"]) .theme-icon-sun {
+      color: var(--text);
+      opacity: 1;
+    }
+
+    :root:not([data-theme="dark"]) .theme-icon-moon {
+      opacity: 0.5;
+    }
+
+    :root[data-theme="dark"] .theme-switch-thumb {
+      transform: translateX(28px);
+    }
+
+    :root[data-theme="dark"] .theme-icon-sun {
+      opacity: 0.5;
+    }
+
+    :root[data-theme="dark"] .theme-icon-moon {
+      color: var(--text);
+      opacity: 1;
+    }
 
     .brand { font-weight: 700; letter-spacing: 0.1px; }
 
@@ -252,6 +310,17 @@
       resize: vertical;
     }
 
+    body,
+    main::before,
+    .theme-switch-track,
+    .feature,
+    .box,
+    .btn,
+    .contact-input,
+    .contact-textarea {
+      transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+    }
+
     .easter-egg {
       position: fixed;
       left: 4px;
@@ -287,7 +356,14 @@
   <main>
     <div class="wrap">
       <div class="theme-toggle-row">
-        <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">Switch to dark mode</button>
+        <label class="theme-switch" for="theme-switch" aria-label="Toggle color theme">
+          <input id="theme-switch" class="theme-switch-input" type="checkbox" role="switch" aria-label="Toggle dark mode" />
+          <span class="theme-switch-track" aria-hidden="true">
+            <span class="theme-icon theme-icon-sun">☀</span>
+            <span class="theme-icon theme-icon-moon">☾</span>
+            <span class="theme-switch-thumb"></span>
+          </span>
+        </label>
       </div>
       <div class="biz" style="font-weight:700; margin-bottom:10px; font-size:14px; letter-spacing:0.4px;">AGENT MECHANICIANS AI</div>
       <h1>Build custom AI agents for your business.<br>Train your team to run them in-house.<br>Cut consultant dependence.</h1>
@@ -378,7 +454,7 @@
     (function () {
       var storageKey = "amai-theme";
       var root = document.documentElement;
-      var toggle = document.getElementById("theme-toggle");
+      var toggle = document.getElementById("theme-switch");
       if (!toggle) return;
 
       function getTheme() {
@@ -387,14 +463,14 @@
 
       function applyTheme(theme) {
         root.setAttribute("data-theme", theme);
-        toggle.setAttribute("aria-pressed", String(theme === "dark"));
-        toggle.textContent = theme === "dark" ? "Switch to light mode" : "Switch to dark mode";
+        toggle.checked = theme === "dark";
+        toggle.setAttribute("aria-checked", String(theme === "dark"));
       }
 
       applyTheme(getTheme());
 
-      toggle.addEventListener("click", function () {
-        var nextTheme = getTheme() === "dark" ? "light" : "dark";
+      toggle.addEventListener("change", function () {
+        var nextTheme = toggle.checked ? "dark" : "light";
         applyTheme(nextTheme);
         try {
           localStorage.setItem(storageKey, nextTheme);
