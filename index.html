@@ -32,8 +32,13 @@
         var savedTheme = localStorage.getItem("amai-theme");
         if (savedTheme === "light" || savedTheme === "dark") {
           document.documentElement.setAttribute("data-theme", savedTheme);
+        } else {
+          var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+          document.documentElement.setAttribute("data-theme", prefersDark ? "dark" : "light");
         }
       } catch (error) {
+        var fallbackPrefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", fallbackPrefersDark ? "dark" : "light");
       }
     })();
   </script>
