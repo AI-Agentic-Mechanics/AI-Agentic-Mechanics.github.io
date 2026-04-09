@@ -345,10 +345,7 @@
     }
 
     .hero-note {
-      margin-top: 18px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+      display: none;
     }
 
     .chip {
@@ -456,23 +453,18 @@
       gap: 18px;
     }
 
-    .metric.highlight {
-      border-color: rgba(79, 81, 0, 0.75);
-      box-shadow: var(--shadow-elevated);
-    }
-
     .metric-value {
       font-family: var(--font);
-      font-size: clamp(1.5rem, 2.4vw, 2.2rem);
+      font-size: clamp(1.35rem, 2.1vw, 1.9rem);
       line-height: 1.02;
-      font-weight: 800;
+      font-weight: 700;
       letter-spacing: -0.03em;
-      max-width: 12ch;
+      max-width: 14ch;
       text-transform: none;
     }
 
     .metric-value.accent {
-      color: #fbfcaf;
+      color: var(--text);
     }
 
     .metric-copy {
@@ -491,8 +483,8 @@
 
     .metric p {
       max-width: 26ch;
-      font-size: 0.98rem;
-      line-height: 1.55;
+      font-size: 0.95rem;
+      line-height: 1.5;
     }
 
     .section-head {
@@ -1007,17 +999,12 @@
         <div class="hero-grid">
           <div class="hero-copy">
             <div class="eyebrow">Agent Mechanicians AI</div>
-            <h1>Your <span class="nowrap">Business-Specific</span> AI Agents For Real Operations.</h1>
+            <h1>Your <span class="nowrap">Business&#8209;Specific</span> AI Agents For Real Operations.</h1>
             <p>Designed, deployed, and guided for the repetitive work that slows teams down.</p>
             <div class="hero-actions button-row">
               <a class="button primary" href="https://calendly.com/sustcyzq/30min" target="_blank" rel="noopener noreferrer">Book a 15-minute intro</a>
               <a class="button ghost" href="#contact-form">Leave a message</a>
               <a class="button" href="#services">See services</a>
-            </div>
-            <div class="hero-note">
-              <span class="chip">Conversations handled</span>
-              <span class="chip">Decisions supported</span>
-              <span class="chip">Ops moved forward</span>
             </div>
           </div>
 
@@ -1049,33 +1036,33 @@
     <section aria-label="Performance metrics">
       <div class="shell">
         <div class="metrics">
-          <article class="metric highlight">
+          <article class="metric">
             <div class="metric-copy">
-              <div class="micro-label">Fit</div>
-              <div class="metric-value accent">Works with your current stack</div>
+              <div class="micro-label">No Rip-And-Replace</div>
+              <div class="metric-value">Works with the tools you already use</div>
             </div>
-            <p>Email, spreadsheets, docs, calendars, and internal tools can stay in the loop.</p>
+            <p>Email, spreadsheets, docs, calendars, and internal systems can stay in the loop.</p>
           </article>
           <article class="metric">
             <div class="metric-copy">
-              <div class="micro-label">Reality</div>
-              <div class="metric-value">Handles messy real-world inputs</div>
+              <div class="micro-label">Real-World Inputs</div>
+              <div class="metric-value">Can work from messy business data</div>
             </div>
-            <p>Messages, forms, receipts, notes, and files do not need to be perfectly structured.</p>
+            <p>Emails, receipts, PDFs, notes, and spreadsheets do not need to be perfectly structured.</p>
           </article>
           <article class="metric">
             <div class="metric-copy">
-              <div class="micro-label">Control</div>
-              <div class="metric-value">Keeps your team in control</div>
+              <div class="micro-label">Human Control</div>
+              <div class="metric-value">Important actions can stay review-first</div>
             </div>
-            <p>Important actions can pause for review and approval instead of running blind.</p>
+            <p>Drafts, approvals, and checkpoints can stay with your team before anything important is sent or changed.</p>
           </article>
           <article class="metric">
             <div class="metric-copy">
-              <div class="micro-label">Speed</div>
-              <div class="metric-value">Shows value in 2-4 weeks</div>
+              <div class="micro-label">Done For You</div>
+              <div class="metric-value">Set up for your business, not a generic template</div>
             </div>
-            <p>Start with one live workflow, prove value fast, and expand from there.</p>
+            <p>We tailor the setup to your workflow so it actually fits how your business already runs.</p>
           </article>
         </div>
       </div>
