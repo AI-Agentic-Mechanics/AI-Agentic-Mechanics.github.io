@@ -478,8 +478,7 @@
 
     .service-card .service-tag,
     .example-card .example-tag,
-    .price-card .price-tag,
-    .why-card .why-tag {
+    .price-card .price-tag {
       display: inline-flex;
       align-items: center;
       min-height: 28px;
@@ -493,48 +492,14 @@
 
     .service-card h3,
     .example-card h3,
-    .price-card h3,
-    .why-card h3 {
+    .price-card h3 {
       margin-top: 16px;
     }
 
     .example-card p strong,
-    .price-value,
-    .step-number {
+    .price-value {
       color: var(--text);
       font-weight: 700;
-    }
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .step-card {
-      padding: 24px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--surface);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .step-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent-strong);
-      font-size: 1.05rem;
-      margin-bottom: 18px;
-    }
-
-    .step-card p {
-      margin: 12px 0 0;
-      color: var(--muted);
     }
 
     .audience-layout {
@@ -583,10 +548,6 @@
 
     .pricing-note {
       margin-top: 20px;
-    }
-
-    .why-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
     .cta {
@@ -727,14 +688,6 @@
       .pricing-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
-
-      .why-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .steps-grid {
-        grid-template-columns: 1fr;
-      }
     }
 
     @media (max-width: 900px) {
@@ -772,7 +725,6 @@
       .services-grid,
       .examples-grid,
       .pricing-grid,
-      .why-grid,
       .audience-list {
         grid-template-columns: 1fr;
       }
@@ -1045,32 +997,6 @@
       </div>
     </section>
 
-    <section id="how-it-works">
-      <div class="shell">
-        <div class="section-head">
-          <div class="eyebrow">Simple process</div>
-          <h2>How it works</h2>
-        </div>
-        <div class="steps-grid">
-          <article class="step-card">
-            <div class="step-number">1</div>
-            <h3>Tell us what takes too much time</h3>
-            <p>We start by understanding the repetitive tasks in your business and where you want help first.</p>
-          </article>
-          <article class="step-card">
-            <div class="step-number">2</div>
-            <h3>We set up the assistant for you</h3>
-            <p>We build and configure a simple system based on your workflow, tools, and goals.</p>
-          </article>
-          <article class="step-card">
-            <div class="step-number">3</div>
-            <h3>Start using it right away</h3>
-            <p>Once it is ready, we show you how to use it and make sure it works for your daily routine.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section id="who-this-is-for" class="section-band">
       <div class="shell">
         <div class="section-head">
@@ -1083,6 +1009,7 @@
               This is for small business owners, solo operators, and local teams who want practical help with repetitive work but do not have time to build complicated systems themselves.
             </p>
             <p>If you often think, “I do this same task again and again,” this service may be a good fit.</p>
+            <p>You get setup help, team training, and post-launch support without taking on more software complexity yourself.</p>
           </div>
           <ul class="audience-list" aria-label="Example business types">
             <li>Consultants</li>
@@ -1126,37 +1053,6 @@
       </div>
     </section>
 
-    <section id="why-us" class="section-band">
-      <div class="shell">
-        <div class="section-head">
-          <div class="eyebrow">Why choose us</div>
-          <h2>Why business owners work with us</h2>
-        </div>
-        <div class="cards-grid why-grid">
-          <article class="card why-card">
-            <span class="why-tag">Practical</span>
-            <h3>Practical, not theoretical</h3>
-            <p>We focus on tools that are useful in daily work, not flashy demos.</p>
-          </article>
-          <article class="card why-card">
-            <span class="why-tag">Custom</span>
-            <h3>Built around your workflow</h3>
-            <p>Your assistant is set up for the way you already run your business.</p>
-          </article>
-          <article class="card why-card">
-            <span class="why-tag">Simple</span>
-            <h3>Simple to use</h3>
-            <p>We keep the experience clear and approachable, even if you are not technical.</p>
-          </article>
-          <article class="card why-card">
-            <span class="why-tag">Support</span>
-            <h3>Direct support</h3>
-            <p>You work with real people who can help you set things up and make adjustments.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section id="contact" class="cta">
       <div class="shell">
         <div class="cta-panel">
@@ -1173,9 +1069,9 @@
               <a class="button secondary" href="#contact-form">Send a Message</a>
             </div>
             <ul class="cta-points">
-              <li>Custom setup and support</li>
-              <li>Built for real business tasks</li>
-              <li>No technical background needed</li>
+              <li>Custom setup for the way your business already works</li>
+              <li>Training so your team can use and maintain it</li>
+              <li>Free maintenance and small changes for 2 months after launch</li>
             </ul>
             <div class="contact-links">
               <span>Prefer direct contact?</span>
