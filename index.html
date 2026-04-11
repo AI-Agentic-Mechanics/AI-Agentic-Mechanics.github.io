@@ -326,35 +326,106 @@
       font-size: 1rem;
     }
 
-    .intro-grid {
+    .overview-story {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1fr);
       gap: 28px;
       align-items: start;
     }
 
-    .intro-copy {
+    .overview-intro {
+      position: sticky;
+      top: 108px;
       display: grid;
-      gap: 16px;
+      gap: 18px;
     }
 
-    .intro-copy p {
+    .overview-head {
+      margin-bottom: 0;
+    }
+
+    .overview-head p {
       font-size: 1.08rem;
       color: var(--text);
     }
 
-    .signal-list {
-      display: grid;
-      gap: 12px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
+    .overview-note {
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface-soft);
+      color: var(--text);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.98rem;
     }
 
-    .signal-list li {
+    .overview-rail {
+      display: grid;
+      gap: 20px;
+    }
+
+    .overview-step {
+      min-height: 56vh;
       display: flex;
-      align-items: flex-start;
+      align-items: center;
+    }
+
+    .overview-step-card {
+      width: 100%;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      gap: 16px;
+    }
+
+    .overview-step-top {
+      display: flex;
+      align-items: center;
       gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .overview-step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+      font-size: 0.96rem;
+      font-weight: 700;
+    }
+
+    .overview-step-tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: var(--surface-soft);
+      color: var(--accent-strong);
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .overview-step-card h3 {
+      font-size: 1.6rem;
+      line-height: 1.18;
+    }
+
+    .overview-step-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.62;
+    }
+
+    .overview-step-point {
       padding: 14px 16px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -363,14 +434,15 @@
       font-size: 0.98rem;
     }
 
-    .signal-list li::before {
+    .overview-step-point::before {
       content: "";
+      display: inline-block;
       width: 10px;
       height: 10px;
-      margin-top: 0.4rem;
+      margin-right: 12px;
       border-radius: 999px;
       background: var(--highlight);
-      flex-shrink: 0;
+      vertical-align: middle;
     }
 
     .cards-grid {
@@ -675,7 +747,7 @@
         font-size: 2rem;
       }
 
-      .intro-grid,
+      .overview-story,
       .audience-layout,
       .cta-panel,
       .examples-grid,
@@ -704,6 +776,14 @@
       .why-grid,
       .audience-list {
         grid-template-columns: 1fr;
+      }
+
+      .overview-intro {
+        position: static;
+      }
+
+      .overview-step {
+        min-height: auto;
       }
 
       .cta-panel {
@@ -803,22 +883,79 @@
 
     <section id="what-we-do" class="section-band">
       <div class="shell">
-        <div class="section-head">
-          <div class="eyebrow">Overview</div>
-          <h2>What we do</h2>
-        </div>
-        <div class="intro-grid">
-          <div class="intro-copy">
-            <p>
-              We help local businesses install simple AI assistants that take care of repetitive work so owners can spend more time on customers, sales, and operations.
-            </p>
+        <div class="overview-story">
+          <div class="overview-intro">
+            <div class="section-head overview-head">
+              <div class="eyebrow">Overview</div>
+              <h2>What we do</h2>
+              <p>
+                We help local businesses install simple AI assistants that take care of repetitive work so owners can spend more time on customers, sales, and operations.
+              </p>
+              <p>
+                We set it up for you, train your team to use it, and help you keep it running after launch.
+              </p>
+            </div>
+            <div class="overview-note">
+              No technical background needed. Your team gets practical training so they can operate the assistant and handle day-to-day maintenance with confidence.
+            </div>
           </div>
-          <ul class="signal-list" aria-label="Trust signals">
-            <li>Custom setup and support</li>
-            <li>Built for real business tasks</li>
-            <li>No technical background needed</li>
-            <li>Practical help, not generic AI talk</li>
-          </ul>
+          <div class="overview-rail" aria-label="What we do story">
+            <article class="overview-step">
+              <div class="overview-step-card">
+                <div class="overview-step-top">
+                  <span class="overview-step-number">1</span>
+                  <span class="overview-step-tag">Custom setup and support</span>
+                </div>
+                <h3>We start with the work that keeps repeating</h3>
+                <p>
+                  We learn how the task works today, where time gets lost, and what tools your team already uses before we build anything.
+                </p>
+                <div class="overview-step-point">Built around your real process, not a generic template.</div>
+              </div>
+            </article>
+
+            <article class="overview-step">
+              <div class="overview-step-card">
+                <div class="overview-step-top">
+                  <span class="overview-step-number">2</span>
+                  <span class="overview-step-tag">Built for real business tasks</span>
+                </div>
+                <h3>We build practical help for daily work</h3>
+                <p>
+                  That can mean inbox handling, lead follow-up, scheduling, research, data cleanup, and other repetitive admin work that slows down the day.
+                </p>
+                <div class="overview-step-point">Focused on useful tasks your team can start using right away.</div>
+              </div>
+            </article>
+
+            <article class="overview-step">
+              <div class="overview-step-card">
+                <div class="overview-step-top">
+                  <span class="overview-step-number">3</span>
+                  <span class="overview-step-tag">Training for your team</span>
+                </div>
+                <h3>We show your team how to operate and maintain it</h3>
+                <p>
+                  We train your team to use the assistant in daily work, review its output, and handle basic updates or changes without needing a technical background.
+                </p>
+                <div class="overview-step-point">Clear handoff and training so the setup stays useful after deployment.</div>
+              </div>
+            </article>
+
+            <article class="overview-step">
+              <div class="overview-step-card">
+                <div class="overview-step-top">
+                  <span class="overview-step-number">4</span>
+                  <span class="overview-step-tag">Help after launch</span>
+                </div>
+                <h3>We stay available as the setup settles in</h3>
+                <p>
+                  After deployment, we include free maintenance and small modifications for 2 months so you can adjust the setup as your team starts using it.
+                </p>
+                <div class="overview-step-point">Practical support after launch, not a handoff and disappearance.</div>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -972,9 +1109,9 @@
         <div class="cards-grid pricing-grid">
           <article class="card price-card featured">
             <span class="price-tag">Starter Setup</span>
-            <h3>One focused assistant</h3>
-            <div class="price-value">Starting at $200</div>
-            <p>Good for one focused workflow or assistant setup.</p>
+            <h3>Hands-on setup work</h3>
+            <div class="price-value">Labor rate starts at $200/hour</div>
+            <p>Good for one focused assistant setup or a small batch of setup work.</p>
           </article>
           <article class="card price-card">
             <span class="price-tag">Custom Business Setup</span>
@@ -985,8 +1122,8 @@
           <article class="card price-card">
             <span class="price-tag">Ongoing Support</span>
             <h3>Help after launch</h3>
-            <div class="price-value">Optional</div>
-            <p>For updates, refinements, and continued help after setup.</p>
+            <div class="price-value">Free for 2 months</div>
+            <p>We include free maintenance and small modifications for 2 months after deployment.</p>
           </article>
         </div>
         <p class="pricing-note">We keep pricing simple and scope each setup based on the amount of work involved.</p>
